@@ -38,7 +38,7 @@ src
 
 ### 비즈니스 로직 및 핵심 기능
 
-#### 👤 1. 고객 (Customer) 
+#### <span style="color:lightgreen">고객 (Customer) </span>
 - **고객 데이터 제어 및 도메인 검증**: 
   - 신규 등록 및 정보 수정 시 **이메일 중복 여부**를 엄격하게 검증하여 중복 시 예외(`EMAIL_DUPLICATION`)를 발생시킵니다.
   - 이미 탈퇴 처리(`INACTIVE`)된 고객의 정보 수정이나 상태 변경을 시도할 경우 도메인 예외(`ALREADY_INACTIVE_CUSTOMER`)로 접근을 차단합니다.
@@ -47,7 +47,7 @@ src
   - 고객 상태는 `ACTIVE`(활성), `SUSPENDED`(정지), `INACTIVE`(탈퇴)로 구분됩니다. 
   - 일반 상태 변경 API를 통해서는 `ACTIVE`와 `SUSPENDED` 간의 변경만 허용되며, 상태 변경 API로 강제 탈퇴(`INACTIVE`) 처리를 시도할 경우 예외를 발생시킵니다. 회원 탈퇴는 전용 API(Soft Delete)를 통해서만 안전하게 수행되도록 역할이 분리되어 있습니다.
 
-#### 결제 (Payment)
+#### <span style="color:lightgreen">결제 (Payments) </span>
 - **상품 결제기능**
     - 장바구니에 담긴 상품 정보를 바탕으로 결제 시스템을 구현합니다
     - 상품 결제 시 **무결성 및 멱등성 여부**를 엄격하게 검증하여 오류 발생시 예외(`PAYMENT_ILLEGAL_EXCEPTION`)을 발생시킵니다.
