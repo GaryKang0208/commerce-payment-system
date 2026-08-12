@@ -88,7 +88,7 @@ src
 
 ### ERD
 
-<img width="1112" height="702" alt="image" src="https://github.com/user-attachments/assets/f219340d-622b-49bf-aaf7-89e63a45871c" />
+<img width="942" height="633" alt="image" src="https://github.com/user-attachments/assets/d8b223fb-affb-4c05-bcbe-fb0e9e0489fb" />
 
 ---
 
