@@ -1,2 +1,64 @@
-# commerce-payment-system
+## commerce-payment-system
 커머스 결제 시스템 프로젝트
+
+### 주요 기술 스택
+
+| 구분 | 기술                 |
+| :--- |:-------------------|
+| **Language** | Java 17            |
+| **Framework** | Spring Boot 4.1.0  |
+| **ORM** | Spring Data JPA    |
+| **Database** | MySQL              |
+| **Frontend** | Thymeleaf, Bootstrap |
+| **Library** | Lombok, Spring Validation, BCrypt |
+
+---
+
+### 디렉토리 구조
+```text
+src
+└── main
+    └── java
+        └── com.example.customerproductsystem
+            ├── admin           # 관리자 도메인 (고객/상품/주문/리뷰 통합 제어)
+            ├── common          # 공통 기능 (설정, BaseEntity, 글로벌 예외 처리 등)
+            ├── customer        # 고객 도메인 (인증, 프로필 관리 등)
+            │   ├── controller  # API 요청 처리 및 응답 반환
+            │   ├── dto         # 계층 간 데이터 교환 객체 (Request/Response 분리)
+            │   ├── entity      # DB 테이블 매핑 도메인 객체
+            │   ├── error       # 도메인 커스텀 에러
+            │   ├── repository  # Spring Data JPA 기반 DB 접근 계층
+            │   └── service     # 핵심 비즈니스 로직 및 트랜잭션 처리
+            ├── order           # 주문 도메인 (주문 생성, 취소, 재고 차감/복구)
+            └── product         # 상품 도메인 (조회, 정렬, 검색)
+```
+
+---
+
+### 비즈니스 로직 및 핵심 기능
+(각자 도메인 입력)
+(예시)
+#### 👤 1. 고객 (Customer) 
+- **고객 데이터 제어 및 도메인 검증**: 
+  - 신규 등록 및 정보 수정 시 **이메일 중복 여부**를 엄격하게 검증하여 중복 시 예외(`EMAIL_DUPLICATION`)를 발생시킵니다.
+  - 이미 탈퇴 처리(`INACTIVE`)된 고객의 정보 수정이나 상태 변경을 시도할 경우 도메인 예외(`ALREADY_INACTIVE_CUSTOMER`)로 접근을 차단합니다.
+  - 다건 조회 시 페이징 처리와 함께 상태/키워드 기반 검색을 지원하며, 단건 상세 조회 시에는 해당 고객의 **총 주문 횟수와 누적 구매 금액**을 별도로 집계하여 함께 반환합니다.
+- **상태 관리 흐름**: 
+  - 고객 상태는 `ACTIVE`(활성), `SUSPENDED`(정지), `INACTIVE`(탈퇴)로 구분됩니다. 
+  - 일반 상태 변경 API를 통해서는 `ACTIVE`와 `SUSPENDED` 간의 변경만 허용되며, 상태 변경 API로 강제 탈퇴(`INACTIVE`) 처리를 시도할 경우 예외를 발생시킵니다. 회원 탈퇴는 전용 API(Soft Delete)를 통해서만 안전하게 수행되도록 역할이 분리되어 있습니다.
+ 
+---
+
+### 개발 규칙 및 코드 컨벤션
+
+#### 📌 네이밍 규칙 (Naming Conventions)
+- **클래스명**: `PascalCase` (예: `AdminService`)
+- **메서드 및 변수명**: `camelCase` (예: `getAdmins`, `adminId`)
+- **상수명**: `UPPER_SNAKE_CASE` (예: `MAX_PAGE_SIZE`)
+- **DB 테이블 및 컬럼**: `snake_case` (예: `admin_role`, `created_at`)
+
+---
+
+## ERD
+
+<img width="1126" height="711" alt="image" src="https://github.com/user-attachments/assets/345ca0fd-ba4d-4c30-aedb-f33b1ce6ea8b" />
