@@ -20,7 +20,7 @@ src
 └── main
     └── java
         └── com.example.customerproductsystem
-            ├── admin           # 관리자 도메인 (고객/상품/주문/리뷰 통합 제어)
+            ├── customer           # 관리자 도메인 (고객/상품/주문/리뷰 통합 제어)
             ├── common          # 공통 기능 (설정, BaseEntity, 글로벌 예외 처리 등)
             ├── customer        # 고객 도메인 (인증, 프로필 관리 등)
             │   ├── controller  # API 요청 처리 및 응답 반환
