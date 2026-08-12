@@ -28,7 +28,7 @@ src
             │   ├── error       # 도메인 커스텀 에러
             │   ├── repository  # Spring Data JPA 기반 DB 접근 계층
             │   └── service     # 핵심 비즈니스 로직 및 트랜잭션 처리
-            ├── payments        # 결제 도메인 (결제, 결제취소, 포인트)
+            ├── payments        # 결제 도메인 (결제, 결제취소)
             ├── order           # 주문 도메인 (주문 생성, 취소, 재고 차감/복구)
             ├── cart            # 장바구니 도메인 (장바구니 생성, 취소, 일괄결제)
             └── product         # 상품 도메인 (조회, 정렬, 검색)
@@ -86,14 +86,15 @@ src
 - 
 ---
 
-## ERD
+### ERD
 
-<img width="1126" height="711" alt="image" src="https://github.com/user-attachments/assets/345ca0fd-ba4d-4c30-aedb-f33b1ce6ea8b" />
+<img width="1126" height="711" alt="image" src="<img width="1112" height="702" alt="image" src="https://github.com/user-attachments/assets/87067ed7-5268-4814-b3cc-8d1c871a127a" />
+" />
 
 ---
 
-## API 명세서
+### API 명세서
 
-🔗 [API 명세서 (Postman) 바로가기](https://app.notion.com/p/teamsparta/3a42dc3ef51480a597bdc872391adda9)
+🔗 [API 명세서 바로가기](https://app.notion.com/p/teamsparta/3a42dc3ef51480a597bdc872391adda9)
 
 ---
