@@ -57,6 +57,23 @@ src
 - **상수명**: `UPPER_SNAKE_CASE` (예: `MAX_PAGE_SIZE`)
 - **DB 테이블 및 컬럼**: `snake_case` (예: `admin_role`, `created_at`)
 
+#### 🏗 아키텍처 및 DTO
+- **계층 분리**: `Controller` -> `Service` -> `Repository`의 3계층 구조를 준수합니다.
+- **DTO 분리**: Entity를 뷰나 API에 직접 노출하지 않고, 별도의 `Request / Response DTO` 객체로 변환하여 사용합니다.
+- **예외 처리**: 비즈니스 예외는 도메인별 커스텀 에러로 정의하고 `GlobalExceptionHandler`에서 `ApiResponse` 형식으로 일괄 처리합니다.
+
+#### 🌐 RESTful API 설계
+- **URI 표기**: 소문자와 하이픈(`-`) 위주로 사용하며, 자원(Resource)은 복수형 명사로 표현합니다. (예: `/admins/{adminId}`)
+- **HTTP 메서드**: 의미에 맞는 표준 메서드(`GET`, `POST`, `PUT`, `PATCH`, `DELETE`)를 엄격히 사용합니다.
+
+#### 📝 커밋 메시지 규칙 (Commit Convention)
+- ✨ `feat` : 새로운 기능 추가
+- 🐛 `fix` : 버그 수정
+- 📄 `docs` : 문서 수정
+- ♻️ `style` : 코드 포멧팅, 세미콜론 누락, 코드 변경이 없는 경우
+- 🩹 `refactor` : 코드 리펙토링
+- 🚚 `test` : 테스트 코드, 리펙토링 테스트 코드 추가
+- 🔥 `chore` : 빌드 업무 수정, 패키지 매니저 수정
 ---
 
 ## ERD
