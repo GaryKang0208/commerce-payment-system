@@ -160,7 +160,7 @@ src
 
 ### ERD
 
-<img width="942" height="633" alt="image" src="https://github.com/user-attachments/assets/d8b223fb-affb-4c05-bcbe-fb0e9e0489fb" />
+<img width="967" height="669" alt="image" src="https://github.com/user-attachments/assets/e948e46d-65ca-4f5a-9637-c08eb039db62" />
 
 ---
 
